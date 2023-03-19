@@ -1,3 +1,3 @@
 type
     TaskOS* = concept a
-        a.proccess(string) is string
+        a.proccess() is string
