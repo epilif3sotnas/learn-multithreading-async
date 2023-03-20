@@ -1,10 +1,11 @@
-# nim
-import interfaces/[
-    taskfile,
-    taskmathcalculation,
-    taskos,
-    taskparser
-]
+# internal
+import
+    ./interfaces/[
+        taskfile,
+        taskmathcalculation,
+        taskos,
+        taskparser
+    ]
 
 
 type

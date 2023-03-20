@@ -1,6 +1,9 @@
 # nim
-import std/asyncfile
-import std/asyncdispatch
+import
+    std/[
+        asyncfile,
+        asyncdispatch
+    ]
 
 
 type

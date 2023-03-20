@@ -1,5 +1,6 @@
 # nim
-import std/json
+import
+    std/json
 
 
 type

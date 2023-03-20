@@ -1,5 +1,6 @@
 # nim
-import std/osproc
+import
+    std/osproc
 
 
 type

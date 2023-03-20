@@ -1,7 +1,10 @@
 # nim
-import std/strutils
-import std/httpclient
-import std/asyncdispatch
+import
+    std/[
+        strutils,
+        httpclient,
+        asyncdispatch
+    ]
 
 
 type
