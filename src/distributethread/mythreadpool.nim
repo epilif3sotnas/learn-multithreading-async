@@ -18,14 +18,15 @@ type MyThreadPool* = ref object
     threadpool: ThreadPool
     taskDistributor: DistributeTask
 
-proc newMyThreadPool*(): MyThreadPool =
+proc newMyThreadPool*(taskDistributor: DistributeTask): MyThreadPool =
     let numThreads = (countProcessors() / 2).int()
     
     if numThreads == 0:
         numThreads = 1
 
     return MyThreadPool(
-        threadpool = newThreadPool(numThreads)
+        threadpool = newThreadPool(numThreads),
+        taskDistributor = taskDistributor
     )
 
 proc processService*[TService, TArg, TReturn](
