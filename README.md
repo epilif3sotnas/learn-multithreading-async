@@ -1,4 +1,4 @@
-## About learn-dependency-injection
+## About learn-multithreading-async
 
 In this repository was built with the goal to learn about Multithreading, Threadpool and Async systems.
 

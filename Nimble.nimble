@@ -4,7 +4,7 @@
 
 version       = "0.1.0"
 author        = "epilif3sotnas <filipesantos1999@hotmail.com>"
-description   = "Learn Multithreading and Async."
+description   = "Learn Multithreading, Threadpool and Async."
 license       = "Apache-2.0"
 
 
