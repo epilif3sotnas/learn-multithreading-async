@@ -1,6 +1,9 @@
 # nim
 import
-    std/json
+    std/[
+        json,
+        tables
+    ]
 
 
 type
@@ -9,8 +12,8 @@ type
 proc newJSONParse*(): JSONParse =
     return JSONParse()
 
-proc parse*(self: JSONParse, obj: seq[(string, string)]): string =
+proc parse*(self: JSONParse, obj: Table[string, string]): string =
     if obj.len() < 1:
         return "INVALID SEQUENCE"
 
-    return $(%* obj)
+    return $(%obj)

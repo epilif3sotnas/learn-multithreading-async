@@ -1,13 +1,16 @@
 # nim
 import
-  std/os
+  std/[
+    os,
+    tables
+  ]
 
 # internal
 import
   ./tasks/[
     distributetask,
     fibonacci,
-    file,
+    licensefile,
     index,
     jsonparse,
     osinformation,
@@ -33,13 +36,13 @@ proc main() =
     myThreadpool = newMyThreadpool(distributeTask)
 
   for i in 0..<1_000_000:
-    discard myThreadpool.processService(fibonacci, 50'u32)
-    discard myThreadpool.processService(file, getCurrentDir() & "../LICENSE")
-    discard myThreadpool.processService(index, "https://www.google.com")
-    discard myThreadpool.processService(jsonParse, @[("Name", "Filipe"), ("Description", "Nice JSON")])
-    discard myThreadpool.processService(osInformation)
-    discard myThreadpool.processService(osVersion)
-    discard myThreadpool.processService(square, 1_000_000'u32)
+    discard processService[Fibonacci, uint32, uint64](myThreadpool, fibonacci, 50'u32)
+    discard processService[LicenseFile, string, string](myThreadpool, file, getCurrentDir() & "/LICENSE")
+    discard processService[Index, string, string](myThreadpool, index, "https://www.google.com")
+    discard processService[JSONParse, Table[string, string], string](myThreadpool, jsonParse, {"Name": "Filipe", "Description": "Nice JSON"}.toTable())
+    discard processService[OSInformation, string](myThreadpool, osInformation)
+    discard processService[OSVersion, string](myThreadpool, osVersion)
+    discard processService[Square, uint32, uint64](myThreadpool, square, 1_000_000'u32)
 
 when isMainModule:
   main()

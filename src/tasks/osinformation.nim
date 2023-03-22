@@ -9,7 +9,7 @@ type
 proc newOSInformation*(): OSInformation =
     return OSInformation()
 
-proc proccess*(self: OSInformation): string =
+proc process*(self: OSInformation): string =
     let output = execCmdEx("neofetch")
 
     if output[1] != 0:

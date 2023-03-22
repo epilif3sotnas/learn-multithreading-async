@@ -18,5 +18,4 @@ backend       = "cpp"
 
 # Dependencies
 
-requires "nim >= 1.6",
-        "asyncthreadpool >= 0"
+requires "nim >= 1.6"

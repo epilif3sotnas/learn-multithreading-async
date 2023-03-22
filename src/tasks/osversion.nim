@@ -9,7 +9,7 @@ type
 proc newOSVersion*(): OSVersion =
     return OSVersion()
 
-proc proccess*(self: OSVersion): string =
+proc process*(self: OSVersion): string =
     let output = execCmdEx("uname -a")
 
     if output[1] != 0:

@@ -1,3 +1,3 @@
 type
-    TaskMathCalculation* = concept a
-        a.compute(uint32) is uint64
+    TaskMathCalculation*[T] = concept a
+        a.compute(T) is uint64

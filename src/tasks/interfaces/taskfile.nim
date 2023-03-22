@@ -1,3 +1,10 @@
+# nim
+import
+    std/[
+        asyncdispatch
+    ]
+
+
 type
     TaskFile* = concept a
-        a.get(string) is string
+        a.get(string) is Future[string]

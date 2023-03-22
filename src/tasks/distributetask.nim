@@ -1,3 +1,10 @@
+# nim
+import
+    std/[
+        asyncdispatch,
+        tables
+    ]
+
 # internal
 import
     ./interfaces/[
@@ -22,12 +29,12 @@ proc distributeTask*(
     if arg.len() == 0:
         return "NO ARG"
 
-    return service.get(arg)
+    return waitFor service.get(arg)
 
 proc distributeTask*(
     self: DistributeTask,
     service: TaskMathCalculation,
-    arg: uint32
+    arg: SomeUnsignedInt
 ): uint64 =
     return service.compute(arg)
 
@@ -37,9 +44,9 @@ proc distributeTask*(
 ): string =
     return service.process()
 
-proc distributeTask*(
+proc distributeTask*[TArg](
     self: DistributeTask,
     service: TaskParser,
-    arg: ref object
+    arg: TArg
 ): string =
     return service.parse(arg)

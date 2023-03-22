@@ -1,3 +1,3 @@
 type
-    TaskParser* = concept a
-        a.parse(ref object) is string
+    TaskParser*[T] = concept a
+        a.parse(T) is string
