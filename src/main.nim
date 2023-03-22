@@ -34,7 +34,7 @@ proc main() =
 
     myThreadpool = newMyThreadpool(distributeTask)
 
-  for i in 0..<1_00:
+  for i in 0..<1_000_000:
     discard processService[Fibonacci, uint32, uint64](myThreadpool, fibonacci, 50'u32)
     discard processService[LicenseFile, string, string](myThreadpool, file, getCurrentDir() & "/LICENSE")
     discard processService[Index, string, string](myThreadpool, index, "https://www.google.com")
