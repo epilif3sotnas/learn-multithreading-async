@@ -1,4 +1,4 @@
-# nim
+# std
 import
     std/[
         strutils,
