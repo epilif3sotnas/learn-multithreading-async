@@ -18,7 +18,7 @@ Commands to run the project:
 
 ```
 cd {PATH_REPOSITORY}/nim;
-nimble --thread:on -d:ssl run;
+nimble --threads:on -d:ssl run;
 ```
 
 &nbsp;
